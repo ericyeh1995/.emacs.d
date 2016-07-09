@@ -4,6 +4,8 @@
 ;;   cmd-;    autocomplete
 
 
+
+
 ;; Packages
 (require 'package)
 ;; Package-archives
@@ -25,13 +27,14 @@
   '(better-defaults
     elpy
     flycheck
-    py-autopep8))
+    py-autopep8
+    magit))
 ;; Install Packages
 (mapc #'(lambda (package)
           (unless (package-installed-p package)
             (package-install package)))
             myPackages)
-
+;; End Packages
 
 
 
@@ -47,8 +50,8 @@
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 ;;   ipython
-(elpy-use-ipython)
-
+;;(elpy-use-ipython)
+;; End IDE
 
 
 
@@ -58,6 +61,10 @@
 ;; (setq inhibit-startup-message t)
 ;; Global line numebrs
 (global-linum-mode t)
+;; Git
+;;   set magit-status command
+(global-set-key (kbd "C-x g") 'magit-status)
+;; End Peferences
 
 
 
@@ -66,6 +73,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(magit-commit-arguments (quote ("--all")))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
