@@ -23,7 +23,8 @@
 (package-initialize)
 
 
-;; Python IDE
+;; IDE
+;; Python
 (elpy-enable)
 
 
