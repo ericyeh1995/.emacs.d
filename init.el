@@ -23,6 +23,8 @@
 ;; Initialize
 (package-initialize)
 ;; Packages to install
+;; Not all installed packages are in the function:
+;; jedi, iedit
 (defvar myPackages
   '(better-defaults
     elpy
@@ -40,23 +42,40 @@
 
 ;; IDE
 ;; Python
+;;   set PYTHONPATH environment
+(setenv "PYTHONPATH" "/Users/ericyeh/Library/Enthought/Canopy_64bit/User/bin/python")
 ;;   elpy
 (elpy-enable)
+;;   elpy key binding bug
+(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
+;;   iedit mode key binding bug
+(define-key global-map (kbd "C-c o") 'iedit-mode)
 ;;   flycheck: syntex checking
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-;;   PEP8: force pep8 when saving file
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-;;   ipython
+;; disabled
+;; (when (require 'flycheck nil t)
+;;  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;  (add-hook 'elpy-mode-hook 'flycheck-mode))
+;;   PEP8: force pep8 format when saving file
+;; (require 'py-autopep8)
+;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+;;   ipython: doesn't work...
 ;;(elpy-use-ipython)
+;;   jedi: autocomplete
+;; (global-auto-complete-mode -1) ;; disable elpy's autocomplete
+;; (require 'jedi)
+;; (setq elpy-rpc-backend "jedi")
+;; (add-hook 'elpy-mode-hook 'jedi:setup)
+;; (setq jedi:setup-keys t)
+;; (setq jedi:complete-on-dot t)
 ;; End IDE
 
 
 
 
-;; Peferences
+;; General
+;; Theme
+(load-theme 'solarized t)
+(set-terminal-parameter nil 'background-mode 'dark)
 ;; Hide startup message
 ;; (setq inhibit-startup-message t)
 ;; Global line numebrs
@@ -64,6 +83,8 @@
 ;; Git
 ;;   set magit-status command
 (global-set-key (kbd "C-x g") 'magit-status)
+;; Auto-Complete
+;; (ac-config-default)
 ;; End Peferences
 
 
