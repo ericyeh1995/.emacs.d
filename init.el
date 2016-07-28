@@ -30,7 +30,8 @@
     elpy
     flycheck
     py-autopep8
-    magit))
+    magit
+    neotree))
 ;; Install Packages
 (mapc #'(lambda (package)
           (unless (package-installed-p package)
@@ -51,13 +52,12 @@
 ;;   iedit mode key binding bug
 (define-key global-map (kbd "C-c o") 'iedit-mode)
 ;;   flycheck: syntex checking
-;; disabled
 ;; (when (require 'flycheck nil t)
 ;;  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
 ;;  (add-hook 'elpy-mode-hook 'flycheck-mode))
 ;;   PEP8: force pep8 format when saving file
-;; (require 'py-autopep8)
-;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 ;;   ipython: doesn't work...
 ;;(elpy-use-ipython)
 ;;   jedi: autocomplete
@@ -74,8 +74,10 @@
 
 ;; General
 ;; Theme
-(load-theme 'solarized t)
-(set-terminal-parameter nil 'background-mode 'dark)
+(load-theme 'darkokai t)
+;; (load-theme 'monokai t)
+;; (load-theme 'solarized t)
+;; (set-terminal-parameter nil 'background-mode 'dark)
 ;; Hide startup message
 ;; (setq inhibit-startup-message t)
 ;; Global line numebrs
@@ -86,7 +88,9 @@
 ;; Auto-Complete
 ;; (ac-config-default)
 ;; End Peferences
-
+;; Neotree
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
 
 (custom-set-variables
