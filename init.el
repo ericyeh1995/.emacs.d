@@ -56,18 +56,18 @@
 ;;  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
 ;;  (add-hook 'elpy-mode-hook 'flycheck-mode))
 ;;   PEP8: force pep8 format when saving file
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+;; (require 'py-autopep8)
+;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 ;;   ipython: doesn't work...
 ;;(elpy-use-ipython)
 ;;   jedi: autocomplete
-;; (global-auto-complete-mode -1) ;; disable elpy's autocomplete
+;; (global-auto-complete-mode -1)
 ;; (require 'jedi)
-;; (setq elpy-rpc-backend "jedi")
+(setq elpy-rpc-backend "jedi")
 ;; (add-hook 'elpy-mode-hook 'jedi:setup)
 ;; (setq jedi:setup-keys t)
 ;; (setq jedi:complete-on-dot t)
-;; End IDE
+ ;; End IDE
 
 
 
@@ -106,3 +106,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; modify window
+(global-set-key (kbd "<C-up>") 'enlarge-window)
+(global-set-key (kbd "<C-down>") 'shrink-window)
+(global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
+
+
+
+;; hide homescreen
+(setq inhibit-startup-screen t)
