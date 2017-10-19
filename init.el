@@ -44,7 +44,7 @@
 ;; IDE
 ;; Python
 ;;   set PYTHONPATH environment
-(setenv "PYTHONPATH" "/Users/ericyeh/Library/Enthought/Canopy_64bit/User/bin/python")
+;; (setenv "PYTHONPATH" "/Users/ericyeh/Library/Enthought/Canopy_64bit/User/bin/python")
 ;;   elpy
 (elpy-enable)
 ;;   elpy key binding bug
@@ -79,7 +79,7 @@
 ;; (load-theme 'solarized t)
 ;; (set-terminal-parameter nil 'background-mode 'dark)
 ;; Hide startup message
-;; (setq inhibit-startup-message t)
+(setq inhibit-startup-message t)
 ;; Global line numebrs
 (global-linum-mode t)
 ;; Git
@@ -91,6 +91,11 @@
 ;; Neotree
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+;; smart mode lines
+;; (setq sml/theme 'dark)
+;; (setq sml/theme 'light)
+;; (setq sml/theme 'respectful)
+(sml/setup)
 
 
 (custom-set-variables
@@ -98,6 +103,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(magit-commit-arguments (quote ("--all")))
  '(paradox-github-token t))
 (custom-set-faces
@@ -108,10 +116,10 @@
  )
 
 ;; modify window
-(global-set-key (kbd "<C-up>") 'enlarge-window)
-(global-set-key (kbd "<C-down>") 'shrink-window)
-(global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
-(global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
+;; (global-set-key (kbd "<C-up>") 'enlarge-window)
+;; (global-set-key (kbd "<C-down>") 'shrink-window)
+;; (global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
+;; (global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
 
 
 
