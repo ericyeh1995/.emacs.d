@@ -92,9 +92,10 @@
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 ;; smart mode lines
-;; (setq sml/theme 'dark)
+;;(setq sml/theme 'dark)
 ;; (setq sml/theme 'light)
 ;; (setq sml/theme 'respectful)
+(setq sml/no-confirm-load-theme t)
 (sml/setup)
 
 
